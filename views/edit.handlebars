@@ -1,0 +1,22 @@
+<div class="card mt-3">
+  <div class="card-body">
+    <h3 class="pb-2"><strong>Edit Video Idea</strong></h3>
+    {{#each errors}}
+    <div class="alert alert-danger" role="alert">
+      {{ text }}
+    </div>
+    {{/each}}
+    <form action="/ideas/{{idea.id}}?_method=PUT" method="post">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
+        <input name="title" required value="{{ idea.title }}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Details</label>
+        <textarea required name="details" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ idea.details }}</textarea>
+      </div>
+      <input type="hidden" name="_method" value="PUT">
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
