@@ -1,18 +1,20 @@
-<h3 class="mt-3 mb-4"><strong>Video Ideas</strong></h3>
-
+<h3 class="mt-5 mb-4"><strong>Video Ideas</strong></h3>
 <div class="row">
-  {{#each ideas}}
-  <div class="col-6">
-    <div class="card mt-2">
-      <div class="card-body">
-        <h5 class="card-title"><strong>{{title}}</strong></h5>
-        <p class="card-text">{{details}}</p>
-        <a class="btn btn-primary btn-sm text-white" href="/ideas/edit/{{id}}">Edit</a>
-        <a class="btn btn-danger btn-sm text-white">Delete</a>
-      </div>
+    {{#each ideas}}
+    <div class="col-6">
+        <div class="card mt-2">
+            <div class="card-body">
+                <h5 class="card-title"><strong>{{title}}</strong></h5>
+                <p class="card-text">{{details}}</p>
+                <form method="POST" action="/ideas/{{id}}?_method=DELETE">
+                    <a class="btn btn-primary btn-sm text-white" href="/ideas/edit/{{id}}">Edit</a>
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn btn-danger btn-sm" type="submit">Delete resource</button>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
-  {{else}}
-  <p>No Video Ideas listed.</p>
-  {{/each}}
+    {{else}}
+    <p>No Video Ideas listed.</p>
+    {{/each}}
 </div>
